@@ -16,7 +16,7 @@ namespace DemoEx.ViewModels
         public string LastName { get; set; }
         public string Patronymic { get; set; }
         public DateTime Birthday { get; set; }
-        //public DateTime RegistrationDate { get; set; }
+        public DateTime RegistrationDate { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
         public char GenderCode { get; set; }
@@ -27,7 +27,7 @@ namespace DemoEx.ViewModels
         public Client SelectedClient { get => client; set { client = value; OnPropertyChanged(); } }
         public Gender SelectedGender { get => gender; set { gender = value; OnPropertyChanged(); } }
         public ObservableCollection<Gender> Genders { get; set; }
-        public void AddClient(string fname, string lname, string patronymic, DateTime birthday, string phone, string email, char genderCode)
+        public void AddClient(string fname, string lname, string patronymic, DateTime birthday, string phone, string email, char genderCode, DateTime registrationDate)
         {
             db = DB.GetDB();
             Client client = new Client
@@ -38,7 +38,8 @@ namespace DemoEx.ViewModels
                 Birthday = birthday,
                 Phone = phone,
                 Email = email,
-                GenderCode = genderCode.ToString()
+                GenderCode = genderCode.ToString(),
+                RegistrationDate = registrationDate
             };
 
             db.Client.Add(client);
@@ -52,7 +53,7 @@ namespace DemoEx.ViewModels
             
             SaveClient = new RelayCommand(() =>
             {
-                AddClient(FirstName, LastName, Patronymic, Birthday, Phone, Email, GenderCode);
+                AddClient(FirstName, LastName, Patronymic, Birthday, Phone, Email, GenderCode, RegistrationDate);
                 mainVM.CurrentView = new ClientListPage(mainVM);
             });
             Back = new RelayCommand(() =>

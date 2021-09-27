@@ -36,6 +36,7 @@ namespace DemoEx.ViewModels
             {
                 mainVM.CurrentView = new AddClientView(mainVM);
             });
+
         }
     }
 }
