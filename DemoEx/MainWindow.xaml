@@ -5,8 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DemoEx"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
         
+        Title="MainWindow" Height="450" Width="800">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <Image Source="C:\Users\user\Desktop\ДЭ1135\Общие ресурсы\service_logo.ico" Width="50" HorizontalAlignment="Left"/>
+            <Button Content="Перейти к списку клиентов" Command="{Binding OpenClientList}" Margin="5"/>
+            <Button Content="Перейти к списку сервисов" Command="{Binding OpenServiceList}" Margin="5"/>
+            <Button Content="Перейти к списку посещений" Command="{Binding OpenClientServiceList}" Margin="5"/>
+        </StackPanel>
+        <Button Grid.Column="1" Grid.Row="0" 
+                    Content="X"
+                    FontSize="20" 
+                    Foreground="White"
+                    BorderBrush="Black"           
+                    Height="40" Width="50" 
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                    Click="CloseWindow"/>
+
+        <Frame Content="{Binding CurrentView}" Grid.Row="1" Grid.Column="1" Margin="3" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

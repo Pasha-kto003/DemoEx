@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DemoEx.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -24,7 +25,8 @@ namespace DemoEx
         public MainWindow()
         {
             InitializeComponent();
-            Some_DbEntities some_DbEntities = new Some_DbEntities();
+            DataContext = new MainViewModel();
+            //Some_DbEntities some_DbEntities = new Some_DbEntities();
 
             //var rows = File.ReadAllLines(@"C:\Users\user\Desktop\ДЭ1135\Сессия 1\service_a_import.txt");
             //for(int i = 1; i < rows.Length; i++)
@@ -50,24 +52,30 @@ namespace DemoEx
             //}
             //some_DbEntities.SaveChanges();
 
-            var clients = some_DbEntities.Client.ToList();
-            var services = some_DbEntities.Service.ToList();
-            var rows = File.ReadAllLines(@"C:\Users\user\Desktop\ДЭ1135\Сессия 1\clientservice_a_import.csv");
-            for (int i = 1; i < rows.Length; i++)
-            {
-                var cols = rows[i].Split(new char[] { ';' });
-                var client = clients.FirstOrDefault(c => c.LastName == cols[0]);
-                var service = services.FirstOrDefault(c => c.Title == cols[2]);
-                var time = DateTime.Parse(cols[1]);
-                ClientService clientService = new ClientService
-                {
-                    Client = client,
-                    Service = service,
-                    StartTime = time
-                };
-                some_DbEntities.ClientService.Add(clientService);
-            }
-            some_DbEntities.SaveChanges();
+            ////var clients = some_DbEntities.Client.ToList();
+            ////var services = some_DbEntities.Service.ToList();
+            ////var rows = File.ReadAllLines(@"C:\Users\user\Desktop\ДЭ1135\Сессия 1\clientservice_a_import.csv");
+            ////for (int i = 1; i < rows.Length; i++)
+            ////{
+            ////    var cols = rows[i].Split(new char[] { ';' });
+            ////    var client = clients.FirstOrDefault(c => c.LastName == cols[0]);
+            ////    var service = services.FirstOrDefault(c => c.Title == cols[2]);
+            ////    var time = DateTime.Parse(cols[1]);
+            ////    ClientService clientService = new ClientService
+            ////    {
+            ////        Client = client,
+            ////        Service = service,
+            ////        StartTime = time
+            ////    };
+            ////    some_DbEntities.ClientService.Add(clientService);
+            ////}
+            ////some_DbEntities.SaveChanges();
+            
+        }
+
+        private void CloseWindow(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
