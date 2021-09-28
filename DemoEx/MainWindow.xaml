@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DemoEx"
-        mc:Ignorable="d"
+        mc:Ignorable="d" WindowState="Maximized" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         
         Title="MainWindow" Height="450" Width="800">
 
@@ -12,8 +12,13 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition/>
+            
         </Grid.ColumnDefinitions>
-        <StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.RowSpan="2">
             <Image Source="C:\Users\user\Desktop\ДЭ1135\Общие ресурсы\service_logo.ico" Width="50" HorizontalAlignment="Left"/>
             <Button Content="Перейти к списку клиентов" Command="{Binding OpenClientList}" Margin="5"/>
             <Button Content="Перейти к списку сервисов" Command="{Binding OpenServiceList}" Margin="5"/>

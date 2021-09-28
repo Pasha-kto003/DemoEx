@@ -38,8 +38,9 @@ namespace DemoEx.ViewModels
                 Birthday = birthday,
                 Phone = phone,
                 Email = email,
-                GenderCode = genderCode.ToString(),
-                RegistrationDate = registrationDate
+                //GenderCode = genderCode.ToString(),
+                GenderCode = SelectedGender.Code,
+                RegistrationDate = DateTime.Now
             };
 
             db.Client.Add(client);

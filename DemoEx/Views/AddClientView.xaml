@@ -28,7 +28,7 @@
             <TextBlock Text="Введите E-mail"/>
             <TextBox Text="{Binding Email}"/>
             <TextBlock Text="Выберите пол клиента"/>
-            <ComboBox ItemsSource="{Binding Genders}" SelectedItem="{Binding Client.Gender}" DisplayMemberPath="Code"/>
+            <ComboBox ItemsSource="{Binding Genders}" SelectedItem="{Binding SelectedGender}" DisplayMemberPath="Name"/>
         </StackPanel>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
