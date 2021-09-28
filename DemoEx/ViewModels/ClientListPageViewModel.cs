@@ -20,19 +20,18 @@ namespace DemoEx.ViewModels
 
         DB db;
         Some_DbEntities dbEntities;
-        //public string FirstName { get; set; }
-        //public string LastName { get; set; }
-        //public string Patronymic { get; set; }
-        //public DateTime Birthday { get; set; } 
-        //public DateTime RegistrationDate { get; set; }
-        //public long Phone { get; set; }
-        //public string Email { get; set; }
-        //public char GenderCode { get; set; }
+        string selectedType;
         Client client;
+        public List<string> Types { get; set; }
+        public RelayCommand SearchGender { get; set; }
+
         ClientService clientService;
         public ObservableCollection<Client> Clients { get; set; }
+        public ObservableCollection<Gender> Genders { get; set; }
+       
         public Client SelectedClient { get => client; set { client = value; OnPropertyChanged(); } }
-
+        public string SelectedGender { get => selectedType; set { selectedType = value; OnPropertyChanged(); } }
+        public string SearchRequest { get; set; }
         private readonly CollectionViewSource _FilterClients = new CollectionViewSource();
 
         public ICollectionView FilterClients => _FilterClients?.View;
@@ -81,14 +80,48 @@ namespace DemoEx.ViewModels
         public ClientListPageViewModel(MainViewModel mainVM)
         {
             dbEntities = DB.GetDB();
+            //Types = new List<string>()
+            //{
+            //    "По мужскому полу",
+            //    "По женскому полу"
+            //};
             Clients = new ObservableCollection<Client>(dbEntities.Client);
             _FilterClients.Source = Clients;
             _FilterClients.Filter += OnClientFiltred;
+
             AddNewClient = new RelayCommand(() =>
             {
                 mainVM.CurrentView = new AddClientView(mainVM);
             });
+            EditClient = new RelayCommand(() =>
+            {
+                mainVM.CurrentView = new EditClient(mainVM, SelectedClient);
+            });
+            //SearchGender = new RelayCommand(() =>
+            //{
+            //    dbEntities = DB.GetDB();
+            //    List<Gender> genders = new List<Gender>();
+            //    switch (SelectedGender)
+            //    {
+            //        case "По мужскому полу":
+            //            foreach (Gender gender in Genders)
+            //            {
+            //                if (gender.Code.Contains("м"))
+            //                    genders.Add(gender);
+            //            }
+            //            break;
 
+            //        case "По женскому полу":
+            //            foreach (Gender gender in Genders)
+            //            {
+            //                if (gender.Code.Contains("ж"))
+            //                {
+            //                    genders.Add(gender);
+            //                }
+            //            }
+            //            break;
+            //    }
+            //});
         }
         
     }
