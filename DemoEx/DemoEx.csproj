@@ -106,17 +106,25 @@
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\AddClientViewModel.cs" />
+    <Compile Include="ViewModels\AddServiceViewModel.cs" />
     <Compile Include="ViewModels\ClientListPageViewModel.cs" />
     <Compile Include="ViewModels\EditClientViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\ServiceListPageViewModel.cs" />
     <Compile Include="Views\AddClientView.xaml.cs">
       <DependentUpon>AddClientView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddServiceView.xaml.cs">
+      <DependentUpon>AddServiceView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ClientListPage.xaml.cs">
       <DependentUpon>ClientListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EditClient.xaml.cs">
       <DependentUpon>EditClient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ServiceListPage.xaml.cs">
+      <DependentUpon>ServiceListPage.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -144,11 +152,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AddServiceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ClientListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EditClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ServiceListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

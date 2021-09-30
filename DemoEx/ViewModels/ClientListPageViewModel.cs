@@ -31,7 +31,6 @@ namespace DemoEx.ViewModels
        
         public Client SelectedClient { get => client; set { client = value; OnPropertyChanged(); } }
         public string SelectedGender { get => selectedType; set { selectedType = value; OnPropertyChanged(); } }
-        public string SearchRequest { get; set; }
         private readonly CollectionViewSource _FilterClients = new CollectionViewSource();
 
         public ICollectionView FilterClients => _FilterClients?.View;
